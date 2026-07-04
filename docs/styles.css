@@ -84,7 +84,7 @@ body::after {
   position: absolute;
   left: var(--tile-x);
   top: var(--tile-y);
-  width: clamp(2.75rem, 4.9vw, 6.4rem);
+  width: clamp(1.375rem, 2.45vw, 3.2rem);
   aspect-ratio: 593 / 545;
   opacity: calc(0.002 + (var(--pull, 0) * 0.98));
   background:
@@ -112,7 +112,7 @@ body::after {
 }
 
 .logo-field__tile:nth-child(4n) {
-  width: clamp(2.3rem, 4.1vw, 5.45rem);
+  width: clamp(1.15rem, 2.05vw, 2.725rem);
 }
 
 .memorial {

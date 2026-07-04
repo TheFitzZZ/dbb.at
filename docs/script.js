@@ -13,7 +13,7 @@ if (canTrackPointer && !reduceMotion) {
     }
 
     logoField.textContent = "";
-    const spacing = Math.max(58, Math.min(86, window.innerWidth / 14));
+    const spacing = Math.max(34, Math.min(48, window.innerWidth / 22));
     const columns = Math.ceil(window.innerWidth / spacing) + 2;
     const rows = Math.ceil(window.innerHeight / spacing) + 2;
     const fragment = document.createDocumentFragment();
