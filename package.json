@@ -1,0 +1,13 @@
+{
+  "name": "dbb-archive-tools",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "wayback:crawl": "node tools/wayback-crawl.mjs",
+    "wayback:camoufox:fetch": "camoufox-js fetch"
+  },
+  "optionalDependencies": {
+    "camoufox-js": "latest",
+    "playwright-core": "latest"
+  }
+}
