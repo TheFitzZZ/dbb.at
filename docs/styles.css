@@ -8,6 +8,11 @@
   --dbb-rust-dim: oklch(0.260 0.072 35.8);
   --dbb-tech: oklch(0.560 0.120 190);
   --dbb-text: oklch(0.880 0.006 255);
+  --mouse-x: 50vw;
+  --mouse-y: 50vh;
+  --parallax-x: 0px;
+  --parallax-y: 0px;
+  --ascii-field: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='176' height='96' viewBox='0 0 176 96'%3E%3Ctext x='0' y='10' fill='%238a8376' opacity='.34' font-family='Consolas,monospace' font-size='9'%3EdbB%2B // q1dm6 //%3C/text%3E%3Ctext x='9' y='25' fill='%238a8376' opacity='.24' font-family='Consolas,monospace' font-size='9'%3E%5B%5D--%2B%2B--%5B%5D 1998%3C/text%3E%3Ctext x='0' y='40' fill='%238a8376' opacity='.30' font-family='Consolas,monospace' font-size='9'%3E%23%23 frag.log :: null%3C/text%3E%3Ctext x='15' y='55' fill='%238a8376' opacity='.22' font-family='Consolas,monospace' font-size='9'%3E%5C%5C respawn denied%3C/text%3E%3Ctext x='3' y='70' fill='%238a8376' opacity='.28' font-family='Consolas,monospace' font-size='9'%3EdbB%2B / / quake / /%3C/text%3E%3Ctext x='20' y='85' fill='%238a8376' opacity='.18' font-family='Consolas,monospace' font-size='9'%3E---- end.dem ----%3C/text%3E%3C/svg%3E");
   --dbb-cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><g fill="none" stroke="%23897d68" stroke-width="1.4" stroke-linecap="square" opacity="0.86"><path d="M16 4v7M16 21v7M4 16h7M21 16h7"/><circle cx="16" cy="16" r="2.4"/><path d="M11 11l2 2M21 11l-2 2M11 21l2-2M21 21l-2-2" opacity="0.55"/></g></svg>') 16 16, crosshair;
 }
 
@@ -25,9 +30,9 @@ body {
 body {
   overflow: hidden;
   background:
-    radial-gradient(circle at 50% 45%, oklch(0.230 0.012 255 / 0.42), transparent 36rem),
+    radial-gradient(circle at var(--mouse-x) var(--mouse-y), oklch(0.560 0.120 190 / 0.10), transparent 18rem),
+    radial-gradient(circle at 50% 45%, oklch(0.230 0.012 255 / 0.34), transparent 34rem),
     linear-gradient(180deg, oklch(0.030 0 0 / 0.18), oklch(0.010 0 0 / 0.82)),
-    url("assets/dbb_modern_grau_2.jpg") center / 34rem repeat,
     var(--dbb-void);
   cursor: var(--dbb-cursor);
 }
@@ -48,12 +53,66 @@ body::before {
 }
 
 body::after {
-  opacity: 0.20;
-  mix-blend-mode: overlay;
+  z-index: 3;
+  opacity: 0.18;
+  mix-blend-mode: normal;
   background-image:
-    repeating-linear-gradient(0deg, oklch(0.780 0 0 / 0.055) 0 1px, transparent 1px 5px),
-    radial-gradient(circle at 20% 10%, oklch(0.560 0.120 190 / 0.08), transparent 17rem),
-    radial-gradient(circle at 82% 88%, oklch(0.380 0.118 35.8 / 0.10), transparent 19rem);
+    linear-gradient(90deg, oklch(0.880 0.006 255 / 0.040) 1px, transparent 1px),
+    linear-gradient(0deg, oklch(0.880 0.006 255 / 0.034) 1px, transparent 1px);
+  background-position:
+    calc(50% + (var(--parallax-x) * -0.42)) calc(50% + (var(--parallax-y) * -0.42)),
+    calc(50% + (var(--parallax-x) * -0.42)) calc(50% + (var(--parallax-y) * -0.42));
+  background-size:
+    5.6rem 5.6rem,
+    5.6rem 5.6rem;
+  mask-image: radial-gradient(circle at var(--mouse-x) var(--mouse-y), black 0 15rem, rgb(0 0 0 / 0.45) 31rem, rgb(0 0 0 / 0.12) 74rem);
+  -webkit-mask-image: radial-gradient(circle at var(--mouse-x) var(--mouse-y), black 0 15rem, rgb(0 0 0 / 0.45) 31rem, rgb(0 0 0 / 0.12) 74rem);
+}
+
+.logo-field {
+  position: fixed;
+  inset: 0;
+  z-index: 3;
+  overflow: hidden;
+  pointer-events: none;
+  perspective: 760px;
+  transform-style: preserve-3d;
+  contain: layout paint style;
+}
+
+.logo-field__tile {
+  position: absolute;
+  left: var(--tile-x);
+  top: var(--tile-y);
+  width: clamp(2.75rem, 4.9vw, 6.4rem);
+  aspect-ratio: 593 / 545;
+  opacity: calc(0.002 + (var(--pull, 0) * 0.98));
+  background:
+    linear-gradient(145deg, oklch(0.900 0.020 82 / 0.98), oklch(0.610 0.150 190 / 0.92) 54%, oklch(0.420 0.120 35.8 / 0.72));
+  mix-blend-mode: normal;
+  mask: url("assets/secondary-logo-grid.png") center / contain no-repeat alpha;
+  -webkit-mask: url("assets/secondary-logo-grid.png") center / contain no-repeat;
+  filter:
+    brightness(calc(0.92 + (var(--pull, 0) * 1.65)))
+    contrast(calc(1.08 + (var(--pull, 0) * 0.68)))
+    drop-shadow(calc(var(--pull-x, 0px) * -0.035) calc(0.18rem + (var(--pull, 0) * 1.45rem)) calc(0.18rem + (var(--pull, 0) * 1.95rem)) oklch(0.000 0 0 / 0.94))
+    drop-shadow(0 0 calc(var(--pull, 0) * 2.35rem) oklch(0.560 0.120 190 / 0.74));
+  transform:
+    translate3d(var(--pull-x, 0px), var(--pull-y, 0px), calc(var(--pull, 0) * 26rem))
+    rotateX(calc(var(--pull-y, 0px) * -0.28deg))
+    rotateY(calc(var(--pull-x, 0px) * 0.28deg))
+    scale(calc(0.10 + (var(--pull, 0) * 2.18)));
+  transform-origin: center;
+  transition: opacity 180ms ease-out, filter 180ms ease-out;
+  will-change: transform, opacity, filter;
+}
+
+.logo-field__tile:nth-child(3n) {
+  opacity: calc(0.001 + (var(--pull, 0) * 0.88));
+}
+
+.logo-field__tile:nth-child(4n) {
+  width: clamp(2.3rem, 4.1vw, 5.45rem);
 }
 
 .memorial {
@@ -64,57 +123,33 @@ body::after {
   min-height: 100svh;
   place-items: center;
   isolation: isolate;
-  padding: clamp(1rem, 3.5vw, 4rem);
+  padding: 0;
 }
 
 .memorial::before {
   position: absolute;
-  inset: 8% 5%;
+  inset: 0;
   z-index: -1;
   background:
-    radial-gradient(ellipse at center, oklch(0.620 0.010 255 / 0.18), transparent 48%),
-    radial-gradient(ellipse at center, oklch(0.260 0.072 35.8 / 0.19), transparent 68%);
-  filter: blur(32px);
-  opacity: 0.74;
+    radial-gradient(ellipse at center, oklch(0.620 0.010 255 / 0.10), transparent 42%),
+    radial-gradient(ellipse at center, oklch(0.260 0.072 35.8 / 0.12), transparent 68%);
+  opacity: 0.62;
   content: "";
 }
 
 .relic {
   position: relative;
-  width: min(90vw, calc(88svh * 1.5), 96rem);
-  max-width: 1536px;
+  width: 100vw;
+  height: 100svh;
+  max-width: none;
   margin: 0;
-  aspect-ratio: 3 / 2;
   isolation: isolate;
   animation: relic-arrival 1600ms cubic-bezier(0.16, 1, 0.3, 1) both, relic-breathe 7600ms ease-in-out 1600ms infinite;
 }
 
 .relic::before,
 .relic::after {
-  position: absolute;
-  inset: -9%;
-  z-index: 1;
-  pointer-events: none;
-  content: "";
-}
-
-.relic::before {
-  inset: -2%;
-  z-index: 2;
-  background:
-    radial-gradient(ellipse at center, transparent 0 79%, oklch(0.070 0 0 / 0.28) 91%, oklch(0.030 0 0 / 0.72) 100%),
-    linear-gradient(180deg, transparent 0 74%, oklch(0.000 0 0 / 0.24) 100%);
-}
-
-.relic::after {
-  inset: -12%;
-  z-index: -1;
-  opacity: 0.44;
-  background:
-    url("assets/dbb_modern_grau_2.jpg") center / 23rem repeat,
-    radial-gradient(ellipse at center, oklch(0.620 0.010 255 / 0.18), transparent 60%),
-    radial-gradient(ellipse at center, transparent 58%, oklch(0.000 0 0 / 0.76));
-  mix-blend-mode: soft-light;
+  content: none;
 }
 
 .relic__image {
@@ -123,25 +158,15 @@ body::after {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
+  object-position: center 48%;
   filter:
     brightness(1.06)
     contrast(1.06)
     saturate(0.96)
-    drop-shadow(0 1.2rem 4rem oklch(0.000 0 0 / 0.62))
-    drop-shadow(0 0 1.6rem oklch(0.260 0.072 35.8 / 0.18));
+    drop-shadow(0 0 0.9rem oklch(0.000 0 0 / 0.52));
   opacity: 1;
   mix-blend-mode: normal;
-  mask-image:
-    radial-gradient(ellipse at center, black 0 78%, oklch(0 0 0 / 0.98) 90%, transparent 100%),
-    linear-gradient(90deg, transparent, black 2%, black 98%, transparent),
-    linear-gradient(180deg, transparent, black 2%, black 98%, transparent);
-  mask-composite: intersect;
-  -webkit-mask-image:
-    radial-gradient(ellipse at center, black 0 78%, oklch(0 0 0 / 0.98) 90%, transparent 100%),
-    linear-gradient(90deg, transparent, black 2%, black 98%, transparent),
-    linear-gradient(180deg, transparent, black 2%, black 98%, transparent);
-  -webkit-mask-composite: source-in;
 }
 
 .sr-only {
@@ -183,23 +208,33 @@ body::after {
 
 @media (max-aspect-ratio: 4 / 5) {
   .memorial {
-    padding: max(1rem, env(safe-area-inset-top)) 0.5rem max(1rem, env(safe-area-inset-bottom));
+    padding: 0;
   }
 
-  .relic {
-    width: min(106vw, 88svh * 1.5);
+  .relic__image {
+    object-position: center 50%;
   }
 }
 
 @media (min-aspect-ratio: 21 / 9) {
-  .relic {
-    width: min(78vw, 94svh * 1.5, 104rem);
+  .relic__image {
+    object-fit: contain;
   }
 }
 
 @media (pointer: coarse), (prefers-reduced-motion: reduce) {
   body {
     cursor: auto;
+  }
+
+  body::after,
+  .relic::after,
+  .logo-field__tile {
+    background-position: center;
+  }
+
+  .logo-field {
+    display: none;
   }
 }
 
