@@ -6,6 +6,9 @@ const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").match
 if (canTrackPointer && !reduceMotion) {
   let frame = 0;
   let tiles = [];
+  let spacing = 42;
+  const poolRadius = 5;
+  const pullRadius = 220;
 
   const buildLogoField = () => {
     if (!logoField) {
@@ -13,27 +16,24 @@ if (canTrackPointer && !reduceMotion) {
     }
 
     logoField.textContent = "";
-    const spacing = Math.max(34, Math.min(48, window.innerWidth / 22));
-    const columns = Math.ceil(window.innerWidth / spacing) + 2;
-    const rows = Math.ceil(window.innerHeight / spacing) + 2;
+    spacing = Math.max(34, Math.min(48, window.innerWidth / 22));
     const fragment = document.createDocumentFragment();
     tiles = [];
 
-    for (let row = 0; row < rows; row += 1) {
-      for (let column = 0; column < columns; column += 1) {
+    for (let row = -poolRadius; row <= poolRadius; row += 1) {
+      for (let column = -poolRadius; column <= poolRadius; column += 1) {
         const tile = document.createElement("span");
-        const offset = row % 2 ? spacing * 0.46 : 0;
-        const x = column * spacing - spacing + offset;
-        const y = row * spacing - spacing * 0.72;
 
         tile.className = "logo-field__tile";
-        tile.style.setProperty("--tile-x", `${x}px`);
-        tile.style.setProperty("--tile-y", `${y}px`);
+        tile.style.setProperty("--tile-x", "0px");
+        tile.style.setProperty("--tile-y", "0px");
         tile.style.setProperty("--pull", "0");
         tile.style.setProperty("--pull-x", "0px");
         tile.style.setProperty("--pull-y", "0px");
+        tile.style.setProperty("--tilt-x", "0deg");
+        tile.style.setProperty("--tilt-y", "0deg");
         fragment.appendChild(tile);
-        tiles.push({ element: tile, x: x + spacing * 0.18, y: y + spacing * 0.18 });
+        tiles.push({ element: tile, column, row });
       }
     }
 
@@ -54,16 +54,39 @@ if (canTrackPointer && !reduceMotion) {
       root.style.setProperty("--parallax-x", `${Math.max(-28, Math.min(28, offsetX * 0.035))}px`);
       root.style.setProperty("--parallax-y", `${Math.max(-22, Math.min(22, offsetY * 0.035))}px`);
 
+      const anchorX = Math.round(clientX / spacing) * spacing;
+      const anchorY = Math.round(clientY / spacing) * spacing;
+
       for (const tile of tiles) {
-        const dx = clientX - tile.x;
-        const dy = clientY - tile.y;
-        const distance = Math.hypot(dx, dy);
-        const pull = Math.max(0, 1 - distance / 420);
+        const rowOffset = tile.row % 2 ? spacing * 0.46 : 0;
+        const x = anchorX + tile.column * spacing + rowOffset;
+        const y = anchorY + tile.row * spacing;
+        const adjustedDx = clientX - x;
+        const adjustedDy = clientY - y;
+        const distanceSquared = adjustedDx * adjustedDx + adjustedDy * adjustedDy;
+
+        if (distanceSquared > pullRadius * pullRadius) {
+          tile.element.style.setProperty("--tile-x", `${x}px`);
+          tile.element.style.setProperty("--tile-y", `${y}px`);
+          tile.element.style.setProperty("--pull", "0");
+          tile.element.style.setProperty("--pull-x", "0px");
+          tile.element.style.setProperty("--pull-y", "0px");
+          tile.element.style.setProperty("--tilt-x", "0deg");
+          tile.element.style.setProperty("--tilt-y", "0deg");
+          continue;
+        }
+
+        const distance = Math.sqrt(distanceSquared);
+        const pull = 1 - distance / pullRadius;
         const force = pull * pull;
 
+        tile.element.style.setProperty("--tile-x", `${x}px`);
+        tile.element.style.setProperty("--tile-y", `${y}px`);
         tile.element.style.setProperty("--pull", force.toFixed(3));
-        tile.element.style.setProperty("--pull-x", `${(dx * force * 0.56).toFixed(2)}px`);
-        tile.element.style.setProperty("--pull-y", `${(dy * force * 0.56).toFixed(2)}px`);
+        tile.element.style.setProperty("--pull-x", `${(adjustedDx * force * 0.56).toFixed(2)}px`);
+        tile.element.style.setProperty("--pull-y", `${(adjustedDy * force * 0.56).toFixed(2)}px`);
+        tile.element.style.setProperty("--tilt-x", `${(adjustedDy * force * -0.16).toFixed(2)}deg`);
+        tile.element.style.setProperty("--tilt-y", `${(adjustedDx * force * 0.16).toFixed(2)}deg`);
       }
     });
   };

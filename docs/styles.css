@@ -54,7 +54,7 @@ body::before {
 
 body::after {
   z-index: 3;
-  opacity: 0.18;
+  opacity: 0.14;
   mix-blend-mode: normal;
   background-image:
     linear-gradient(90deg, oklch(0.880 0.006 255 / 0.040) 1px, transparent 1px),
@@ -82,11 +82,11 @@ body::after {
 
 .logo-field__tile {
   position: absolute;
-  left: var(--tile-x);
-  top: var(--tile-y);
+  left: 0;
+  top: 0;
   width: clamp(1.375rem, 2.45vw, 3.2rem);
   aspect-ratio: 593 / 545;
-  opacity: calc(0.002 + (var(--pull, 0) * 0.98));
+  opacity: calc(var(--pull, 0) * 0.98);
   background:
     linear-gradient(145deg, oklch(0.900 0.020 82 / 0.98), oklch(0.610 0.150 190 / 0.92) 54%, oklch(0.420 0.120 35.8 / 0.72));
   mix-blend-mode: normal;
@@ -98,9 +98,9 @@ body::after {
     drop-shadow(calc(var(--pull-x, 0px) * -0.035) calc(0.18rem + (var(--pull, 0) * 1.45rem)) calc(0.18rem + (var(--pull, 0) * 1.95rem)) oklch(0.000 0 0 / 0.94))
     drop-shadow(0 0 calc(var(--pull, 0) * 2.35rem) oklch(0.560 0.120 190 / 0.74));
   transform:
-    translate3d(var(--pull-x, 0px), var(--pull-y, 0px), calc(var(--pull, 0) * 26rem))
-    rotateX(calc(var(--pull-y, 0px) * -0.28deg))
-    rotateY(calc(var(--pull-x, 0px) * 0.28deg))
+    translate3d(calc(var(--tile-x, 0px) + var(--pull-x, 0px)), calc(var(--tile-y, 0px) + var(--pull-y, 0px)), calc(var(--pull, 0) * 26rem))
+    rotateX(var(--tilt-x, 0deg))
+    rotateY(var(--tilt-y, 0deg))
     scale(calc(0.10 + (var(--pull, 0) * 2.18)));
   transform-origin: center;
   transition: opacity 180ms ease-out, filter 180ms ease-out;
@@ -108,7 +108,7 @@ body::after {
 }
 
 .logo-field__tile:nth-child(3n) {
-  opacity: calc(0.001 + (var(--pull, 0) * 0.88));
+  opacity: calc(var(--pull, 0) * 0.88);
 }
 
 .logo-field__tile:nth-child(4n) {
