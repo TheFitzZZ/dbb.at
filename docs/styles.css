@@ -115,6 +115,55 @@ body::after {
   width: clamp(1.15rem, 2.05vw, 2.725rem);
 }
 
+.name-field {
+  position: fixed;
+  inset: 0;
+  z-index: 4;
+  overflow: hidden;
+  pointer-events: none;
+  user-select: none;
+  contain: layout paint style;
+}
+
+.name-field__name {
+  position: absolute;
+  left: var(--name-x, 50%);
+  top: var(--name-y, 50%);
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.045em;
+  max-width: min(76vw, 34rem);
+  color: white;
+  font-family: Tahoma, Verdana, sans-serif;
+  font-size: clamp(1rem, 0.7rem + 1vw, 2rem);
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1;
+  text-shadow:
+    0 0.08rem 0.08rem oklch(0.000 0 0 / 0.98),
+    0 0 0.32rem oklch(0.000 0 0 / 0.96),
+    0 0 1.15rem oklch(0.560 0.120 190 / 0.58);
+  white-space: nowrap;
+  opacity: 0;
+  mix-blend-mode: screen;
+  -webkit-text-stroke: 0.022em oklch(0.000 0 0 / 0.54);
+  transform: translate3d(-50%, -50%, 0) scale(var(--name-scale, 1));
+  animation: name-apparition var(--name-duration, 5200ms) cubic-bezier(0.19, 1, 0.22, 1) forwards;
+  will-change: opacity, filter, transform;
+}
+
+.name-field__dbb {
+  color: white;
+}
+
+.name-field__plus {
+  color: oklch(0.640 0.245 28);
+}
+
+.name-field__nick {
+  color: oklch(0.720 0.180 245);
+}
+
 .memorial {
   position: relative;
   z-index: 2;
@@ -206,6 +255,26 @@ body::after {
   }
 }
 
+@keyframes name-apparition {
+  0% {
+    opacity: 0;
+    filter: blur(0.42rem) brightness(0.7);
+    transform: translate3d(-50%, -50%, 0) translate3d(calc(var(--name-drift-x, 0px) * -0.22), calc(var(--name-drift-y, 0px) * -0.22), 0) scale(calc(var(--name-scale, 1) * 0.92));
+  }
+
+  16%,
+  62% {
+    opacity: var(--name-opacity, 0.74);
+    filter: blur(0) brightness(1.05);
+  }
+
+  100% {
+    opacity: 0;
+    filter: blur(0.5rem) brightness(0.76);
+    transform: translate3d(-50%, -50%, 0) translate3d(var(--name-drift-x, 0px), var(--name-drift-y, 0px), 0) scale(calc(var(--name-scale, 1) * 1.035));
+  }
+}
+
 @media (max-aspect-ratio: 4 / 5) {
   .memorial {
     padding: 0;
@@ -236,6 +305,10 @@ body::after {
   .logo-field {
     display: none;
   }
+
+  .name-field__name {
+    font-size: clamp(0.92rem, 0.7rem + 1vw, 1.42rem);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -249,5 +322,11 @@ body::after {
 
   .relic {
     animation: none;
+  }
+
+  .name-field__name {
+    animation: none;
+    opacity: 0.62;
+    filter: none;
   }
 }

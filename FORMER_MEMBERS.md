@@ -4,14 +4,16 @@ This list was compiled from Wayback Machine captures of `dbb.at`. Static roster 
 
 The later Clansphere `index.php?mod=users` list was not treated as a roster because some archived captures are generic account lists with tens of thousands of obvious spam accounts.
 
-The source pages use inconsistent casing and spacing. Names below preserve the clearest roster form and note obvious aliases where helpful.
+The source pages use inconsistent casing and spacing. Names below preserve the clearest roster form, all normalized with the `dbB+` prefix, and note obvious aliases where helpful.
 
 ## Members and Trials
 
-| Name | Sections seen | Evidence notes |
+Later Clansphere-era names are included in the same table because the 2010s site had no captured clean member roster, but its board statistics and profile links preserve a small set of real-looking dbB community names.
+
+| Name | Sections / evidence type | Evidence notes |
 | --- | --- | --- |
 | dbB+Atlan | Q3F | General clan index snapshots in 2001; Q3F member pages in March and July 2001. |
-| dbB+Blade | Q3F, TDM | General clan index snapshots in 2001; Q3F member pages; TDM member page. |
+| dbB+Blade | Q3F, TDM, ETQW ESL squad, forum user | General clan index snapshots in 2001; Q3F member pages; TDM member page; listed on the January 2008 `dbB+ Etqw Squad` news capture and on the January 2017 forum statistics/toplist. |
 | dbB+Bucho | CS, CTF | General clan index snapshots in 2001; CTF member page. |
 | dbB+Cerberus | WFA, CTF, TDM | General clan index snapshots in 2001; CTF and TDM member pages. |
 | dbB+The Crow | Q3F | General clan index snapshots in 2001; Q3F member pages. Also appears as `dbB+CROW` in a personal-link label. |
@@ -22,7 +24,7 @@ The source pages use inconsistent casing and spacing. Names below preserve the c
 | dbB+Metallic | CS | General clan index snapshots in 2001. |
 | dbB+Mp5warrior | CS | General clan index snapshots in 2001. |
 | dbB+Mortican | CS | General clan index snapshots in 2001. |
-| dbB+Nail | CTF, Q3F, TDM | General clan index snapshots in 2001; Q3F, CTF, and TDM member pages. |
+| dbB+Nail | CTF, Q3F, TDM, ETQW ESL squad | General clan index snapshots in 2001; Q3F, CTF, and TDM member pages; listed on the January 2008 `dbB+ Etqw Squad` news capture. |
 | dbB+Whiner | CS | General clan index snapshots in 2001. |
 | dbB+Zentus | CS | General clan index snapshots in 2001. |
 | dbB+Supabaerli | Q3F | General clan index snapshots in 2001; Q3F member pages. |
@@ -46,16 +48,9 @@ The source pages use inconsistent casing and spacing. Names below preserve the c
 | dbB+Dr.Who | Q3F | Listed in the May 2002 Q3F news as one of three new members welcomed after dbB became "3 Members reicher". |
 | dbB+Snake | Q3F | Listed in the May 2002 Q3F news as one of three new members welcomed after dbB became "3 Members reicher". |
 | dbB+Cravinkel | Q3F | Listed in the May 2002 Q3F news as `dbB+Cravinkel <TR` in a "New Member" post welcoming him as a new brother. |
-
-## Later CMS / Forum-Era Names
-
-These names appear after the static roster era, mostly on the Clansphere forum pages. They are included because the 2010s site had no captured clean member roster, but its board statistics and profile links preserve a small set of real-looking dbB community names.
-
-| Name | Evidence type | Evidence notes |
-| --- | --- | --- |
-| FitzZZ | ETQW ESL squad, forum user | Listed on the January 2008 `dbB+ Etqw Squad` news capture and on the January 2017 forum toplist with 2 comments and in forum statistics under `Aktivste Benutzer`. |
-| Mörser | ETQW ESL squad, forum user | Listed as `dbB+ mörser` on the January 2008 `dbB+ Etqw Squad` news capture; listed on the January 2017 forum toplist with 3 comments and as the most active forum user. |
-| Tino | ETQW ESL squad, forum user | Listed on the January 2008 `dbB+ Etqw Squad` news capture and on the January 2017 forum toplist with 1 comment. |
+| dbB+FitzZZ | ETQW ESL squad, forum user | Listed on the January 2008 `dbB+ Etqw Squad` news capture and on the January 2017 forum toplist with 2 comments and in forum statistics under `Aktivste Benutzer`. |
+| dbB+Mörser | ETQW ESL squad, forum user | Listed as `dbB+ mörser` on the January 2008 `dbB+ Etqw Squad` news capture; listed on the January 2017 forum toplist with 3 comments and as the most active forum user. |
+| dbB+Tino | ETQW ESL squad, forum user | Listed on the January 2008 `dbB+ Etqw Squad` news capture and on the January 2017 forum toplist with 1 comment. |
 | dbB+Speacher | ETQW ESL squad | Listed on the January 2008 `dbB+ Etqw Squad` news capture under `ESL Squad`. |
 | dbB+Angel | ETQW ESL squad | Listed on the January 2008 `dbB+ Etqw Squad` news capture under `ESL Squad`. |
 | dbB+derPate | ETQW ESL squad | Listed on the January 2008 `dbB+ Etqw Squad` news capture under `ESL Squad`. |
@@ -63,9 +58,9 @@ These names appear after the static roster era, mostly on the Clansphere forum p
 | dbB+siro | ETQW ESL squad | Listed on the January 2008 `dbB+ Etqw Squad` news capture under `ESL Squad`. |
 | dbB+Thor | ETQW ESL squad | Listed on the January 2008 `dbB+ Etqw Squad` news capture under `ESL Squad`. |
 | dbB+skratch | ETQW ESL squad | Listed on the January 2008 `dbB+ Etqw Squad` news capture under `ESL Squad`; the same post asks applications be sent to `dbB+ Skratch`. |
-| number13 | Registered user | Listed as the newest member on 2015 and 2017 board-list captures; profile `id=6` replays as `number13`. |
-| Paddy11 | Registered user | Listed as the newest member on the September 2013 board-list capture. |
-| DuU06 | Registered user | Listed as the newest member on the June 2014 board category capture. |
+| dbB+number13 | Registered user | Listed as the newest member on 2015 and 2017 board-list captures; profile `id=6` replays as `number13`. |
+| dbB+Paddy11 | Registered user | Listed as the newest member on the September 2013 board-list capture. |
+| dbB+DuU06 | Registered user | Listed as the newest member on the June 2014 board category capture. |
 
 ## Unresolved Mentions
 

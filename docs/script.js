@@ -1,7 +1,62 @@
 const root = document.documentElement;
 const logoField = document.querySelector(".logo-field");
+const nameField = document.querySelector(".name-field");
 const canTrackPointer = window.matchMedia("(pointer: fine)").matches;
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const formerMembers = [
+  "dbB+Atlan",
+  "dbB+Blade",
+  "dbB+Bucho",
+  "dbB+Cerberus",
+  "dbB+The Crow",
+  "dbB+Demoman",
+  "dbB+Dude",
+  "dbB+Gulak",
+  "dbB+Iceman",
+  "dbB+Metallic",
+  "dbB+Mp5warrior",
+  "dbB+Mortican",
+  "dbB+Nail",
+  "dbB+Whiner",
+  "dbB+Zentus",
+  "dbB+Supabaerli",
+  "dbB+Obi Wahn",
+  "dbB+Jagg3r",
+  "dbB+D3gaSS",
+  "dbB+Heros",
+  "dbB+Heidi",
+  "dbB+Matrix",
+  "dbB+MIB",
+  "dbB+^Maxx Blade",
+  "dbB+Ghost",
+  "dbB+Tiele",
+  "dbB+Ezekiel",
+  "dbB+Overcooler",
+  "dbB+Tiny",
+  "dbB+Rincewind",
+  "dbB+Reav-r",
+  "dbB+K3NnY",
+  "dbB+Viper89",
+  "dbB+Dr.Who",
+  "dbB+Snake",
+  "dbB+Cravinkel",
+  "dbB+FitzZZ",
+  "dbB+Mörser",
+  "dbB+Tino",
+  "dbB+Speacher",
+  "dbB+Angel",
+  "dbB+derPate",
+  "dbB+DeeJay",
+  "dbB+siro",
+  "dbB+Thor",
+  "dbB+skratch",
+  "dbB+number13",
+  "dbB+Paddy11",
+  "dbB+DuU06",
+];
+
+const randomBetween = (min, max) => min + Math.random() * (max - min);
+const shuffle = (items) => [...items].sort(() => Math.random() - 0.5);
 
 if (canTrackPointer && !reduceMotion) {
   let frame = 0;
@@ -106,4 +161,67 @@ if (canTrackPointer && !reduceMotion) {
     buildLogoField();
     setPointer(window.innerWidth / 2, window.innerHeight / 2);
   });
+}
+
+if (nameField) {
+  let visibleNames = 0;
+  let nameQueue = shuffle(formerMembers);
+
+  const nextMemberName = () => {
+    if (nameQueue.length === 0) {
+      nameQueue = shuffle(formerMembers);
+    }
+
+    return nameQueue.pop();
+  };
+
+  const buildName = (fullName) => {
+    const inscription = document.createElement("span");
+    const nick = fullName.startsWith("dbB+") ? fullName.slice(4) : fullName;
+
+    inscription.className = "name-field__name";
+    inscription.style.setProperty("--name-x", `${randomBetween(10, 90).toFixed(2)}vw`);
+    inscription.style.setProperty("--name-y", `${randomBetween(10, 90).toFixed(2)}vh`);
+    inscription.style.setProperty("--name-drift-x", `${randomBetween(-30, 30).toFixed(2)}px`);
+    inscription.style.setProperty("--name-drift-y", `${randomBetween(-22, 22).toFixed(2)}px`);
+    inscription.style.setProperty("--name-duration", `${Math.round(randomBetween(4200, 7200))}ms`);
+    inscription.style.setProperty("--name-opacity", randomBetween(0.68, 0.96).toFixed(2));
+    inscription.style.setProperty("--name-scale", randomBetween(0.92, 1.28).toFixed(2));
+
+    inscription.innerHTML = `<span class="name-field__dbb">dbB</span><span class="name-field__plus">+</span><span class="name-field__nick"></span>`;
+    inscription.querySelector(".name-field__nick").textContent = nick;
+
+    return inscription;
+  };
+
+  const releaseName = () => {
+    if (document.hidden) {
+      window.setTimeout(releaseName, 900);
+      return;
+    }
+
+    const maxVisibleNames = window.innerWidth < 680 ? 4 : 8;
+
+    if (visibleNames < maxVisibleNames) {
+      const inscription = buildName(nextMemberName());
+
+      visibleNames += 1;
+      nameField.appendChild(inscription);
+
+      inscription.addEventListener("animationend", () => {
+        visibleNames = Math.max(0, visibleNames - 1);
+        inscription.remove();
+      }, { once: true });
+    }
+
+    window.setTimeout(releaseName, randomBetween(420, 1320));
+  };
+
+  if (reduceMotion) {
+    for (const memberName of shuffle(formerMembers).slice(0, 14)) {
+      nameField.appendChild(buildName(memberName));
+    }
+  } else {
+    window.setTimeout(releaseName, 720);
+  }
 }
