@@ -8,15 +8,15 @@ The source pages use inconsistent casing and spacing. Names below preserve the c
 
 ## Members and Trials
 
-Later Clansphere-era names are included in the same table because the 2010s site had no captured clean member roster, but its board statistics and profile links preserve a small set of real-looking dbB community names.
+Later Clansphere-era names are included in the same table because the 2010s site had no captured clean member roster, but its board statistics and profile links preserve a small set of real-looking dbB community names. User-provided current member-list screenshot entries are marked separately in the evidence type.
 
 | Name | Sections / evidence type | Evidence notes |
 | --- | --- | --- |
 | dbB+Atlan | Q3F | General clan index snapshots in 2001; Q3F member pages in March and July 2001. |
-| dbB+Blade | Q3F, TDM, ETQW ESL squad, forum user | General clan index snapshots in 2001; Q3F member pages; TDM member page; listed on the January 2008 `dbB+ Etqw Squad` news capture and on the January 2017 forum statistics/toplist. |
+| dbB+Blade | Q3F, TDM, ETQW ESL squad, forum user, user-provided member list | General clan index snapshots in 2001; Q3F member pages; TDM member page; listed on the January 2008 `dbB+ Etqw Squad` news capture and on the January 2017 forum statistics/toplist. Also appears as `Blade (Sascha)` in the user-provided current member-list screenshot. |
 | dbB+Bucho | CS, CTF | General clan index snapshots in 2001; CTF member page. |
 | dbB+Cerberus | WFA, CTF, TDM | General clan index snapshots in 2001; CTF and TDM member pages. |
-| dbB+The Crow | Q3F | General clan index snapshots in 2001; Q3F member pages. Also appears as `dbB+CROW` in a personal-link label. |
+| dbB+The Crow | Q3F, user-provided member list | General clan index snapshots in 2001; Q3F member pages. Also appears as `dbB+CROW` in a personal-link label and as `DaCrow` in the user-provided current member-list screenshot. |
 | dbB+Demoman | Q3F | General clan index snapshots in 2001; Q3F member pages. |
 | dbB+Dude | TDM | General clan index snapshots in 2001; TDM member page also writes this as `dbB+dude`. |
 | dbB+Gulak | TDM, CTF | General clan index snapshots in March and October 2001; CTF member page. |
@@ -53,14 +53,18 @@ Later Clansphere-era names are included in the same table because the 2010s site
 | dbB+Tino | ETQW ESL squad, forum user | Listed on the January 2008 `dbB+ Etqw Squad` news capture and on the January 2017 forum toplist with 1 comment. |
 | dbB+Speacher | ETQW ESL squad | Listed on the January 2008 `dbB+ Etqw Squad` news capture under `ESL Squad`. |
 | dbB+Angel | ETQW ESL squad | Listed on the January 2008 `dbB+ Etqw Squad` news capture under `ESL Squad`. |
-| dbB+derPate | ETQW ESL squad | Listed on the January 2008 `dbB+ Etqw Squad` news capture under `ESL Squad`. |
-| dbB+DeeJay | ETQW ESL squad | Listed on the January 2008 `dbB+ Etqw Squad` news capture under `ESL Squad`. |
+| dbB+DerPate | ETQW ESL squad, user-provided member list | Listed as `dbB+ derPate` on the January 2008 `dbB+ Etqw Squad` news capture under `ESL Squad`; also appears as `DerPate` in the user-provided current member-list screenshot. |
+| dbB+DeeJay | ETQW ESL squad, user-provided member list | Listed on the January 2008 `dbB+ Etqw Squad` news capture under `ESL Squad`; also appears as `_deejay_` in the user-provided current member-list screenshot. |
 | dbB+siro | ETQW ESL squad | Listed on the January 2008 `dbB+ Etqw Squad` news capture under `ESL Squad`. |
 | dbB+Thor | ETQW ESL squad | Listed on the January 2008 `dbB+ Etqw Squad` news capture under `ESL Squad`. |
-| dbB+skratch | ETQW ESL squad | Listed on the January 2008 `dbB+ Etqw Squad` news capture under `ESL Squad`; the same post asks applications be sent to `dbB+ Skratch`. |
+| dbB+Skratch | ETQW ESL squad, user-provided member list | Listed as `dbB+ skratch` on the January 2008 `dbB+ Etqw Squad` news capture under `ESL Squad`; the same post asks applications be sent to `dbB+ Skratch`; also appears as `Skratch` in the user-provided current member-list screenshot. |
 | dbB+number13 | Registered user | Listed as the newest member on 2015 and 2017 board-list captures; profile `id=6` replays as `number13`. |
 | dbB+Paddy11 | Registered user | Listed as the newest member on the September 2013 board-list capture. |
 | dbB+DuU06 | Registered user | Listed as the newest member on the June 2014 board category capture. |
+| dbB+abraxxa | User-provided member list | Listed in the user-provided current member-list screenshot. |
+| dbB+Evilfish | User-provided member list | Listed in the user-provided current member-list screenshot. |
+| dbB+FallenAngel | User-provided member list | Listed in the user-provided current member-list screenshot. |
+| dbB+h0r4l3x | User-provided member list | Listed in the user-provided current member-list screenshot. |
 
 ## Unresolved Mentions
 

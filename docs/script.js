@@ -19,7 +19,6 @@ const formerMembers = [
   "dbB+Nail",
   "dbB+Whiner",
   "dbB+Zentus",
-  "dbB+Supabaerli",
   "dbB+Obi Wahn",
   "dbB+Jagg3r",
   "dbB+D3gaSS",
@@ -45,14 +44,18 @@ const formerMembers = [
   "dbB+Tino",
   "dbB+Speacher",
   "dbB+Angel",
-  "dbB+derPate",
+  "dbB+DerPate",
   "dbB+DeeJay",
   "dbB+siro",
   "dbB+Thor",
-  "dbB+skratch",
+  "dbB+Skratch",
   "dbB+number13",
   "dbB+Paddy11",
   "dbB+DuU06",
+  "dbB+abraxxa",
+  "dbB+Evilfish",
+  "dbB+FallenAngel",
+  "dbB+h0r4l3x",
 ];
 
 const randomBetween = (min, max) => min + Math.random() * (max - min);
